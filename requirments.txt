@@ -5,3 +5,4 @@ python-dotenv
 google-api-python-client
 pydrive2
 oauth2client
+python-dotenv==1.0.1
