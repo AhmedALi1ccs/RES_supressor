@@ -3,9 +3,7 @@ import pandas as pd
 from io import BytesIO, StringIO
 import re
 import numpy as np
-from pydrive2.auth import GoogleAuth
-from pydrive2.drive import GoogleDrive
-from pydrive2.auth import ServiceAccountCredentials
+
 import os
 import json
 import io
