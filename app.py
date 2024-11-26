@@ -12,10 +12,11 @@ from googleapiclient.http import MediaIoBaseUpload
 
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-
+load_dotenv()
 # Constants
 SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = 'Credentials.json'  # Path to your service account JSON file
+credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+SERVICE_ACCOUNT_FILE = json.loads(credentials_json)# Path to your service account JSON file
 REMOVED_FOLDER_ID = "1NWv0AjsOF-_5lmsEyL1q20liFWn1CtUk"  # Folder for "removed" files
 SCRUBBED_FOLDER_ID = "1Ink3w5hpU5sAx9EvFmPu33W7HIbE1BIz"  # Fixed folder ID
 
