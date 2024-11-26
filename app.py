@@ -15,15 +15,23 @@ from google.oauth2 import service_account
 load_dotenv()
 # Constants
 SCOPES = ['https://www.googleapis.com/auth/drive']
-credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
-SERVICE_ACCOUNT_FILE = json.loads(credentials_json)# Path to your service account JSON file
+
 REMOVED_FOLDER_ID = "1NWv0AjsOF-_5lmsEyL1q20liFWn1CtUk"  # Folder for "removed" files
 SCRUBBED_FOLDER_ID = "1Ink3w5hpU5sAx9EvFmPu33W7HIbE1BIz"  # Fixed folder ID
 
 # Authenticate Google Drive API
 def authenticate():
     try:
-        creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+        # Load credentials JSON from environment variable
+        credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+        if not credentials_json:
+            raise ValueError("GOOGLE_CREDENTIALS_JSON not found in environment variables.")
+        
+        # Parse the JSON string into a dictionary
+        credentials_dict = json.loads(credentials_json)
+
+        # Authenticate using the credentials dictionary
+        creds = Credentials.from_service_account_info(credentials_dict, scopes=SCOPES)
         service = build('drive', 'v3', credentials=creds)
         st.info("Google Drive authenticated successfully.")
         return service
