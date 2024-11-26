@@ -16,8 +16,8 @@ load_dotenv()
 # Constants
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
-REMOVED_FOLDER_ID = "1NWv0AjsOF-_5lmsEyL1q20liFWn1CtUk"  # Folder for "removed" files
-SCRUBBED_FOLDER_ID = "1Ink3w5hpU5sAx9EvFmPu33W7HIbE1BIz"  # Fixed folder ID
+REMOVED_FOLDER_ID = "18evx04gWua9ls1mDiIr5FvAQhdFbrwfr"  # Folder for "removed" files
+SCRUBBED_FOLDER_ID = "1-jYrCY5ev44Hy5fXVwOZSjw7xPSTy9ML"  # Fixed folder ID
 
 # Authenticate Google Drive API
 def authenticate():
