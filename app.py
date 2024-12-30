@@ -12,6 +12,7 @@ from googleapiclient.http import MediaIoBaseUpload
 
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
+st.cache_resource.clear()
 load_dotenv()
 # Constants
 SCOPES = ['https://www.googleapis.com/auth/drive']
